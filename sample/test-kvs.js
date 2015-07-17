@@ -26,6 +26,13 @@ db.put("hoge", "fuga", function (err) {
   });
 });
 
+// put object
+db.put("array", [1,2,3,4,5], function(err) {
+  db.get("array", function(v) {
+    console.log("array:", v);
+  });
+});
+
 // put many
 db.put("a1", "a")
   .put("a2", "aa")
