@@ -41,6 +41,12 @@ put value to key.
 
 callback is `function(err){}`
 
+## db.delete(key, callback)
+
+delete key.
+
+callback is `function(err){}`
+
 ## db.all(callback)
 
 get all values.
