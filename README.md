@@ -17,7 +17,8 @@ var db = kvs.open(':memory:');
 
 // put and get
 db.put("neko", "nya-", function(err) {
-  db.get("neko", function (v) {
+  db.get("neko", function (err, v) {
+    if (err) return console.log(err);
     console.log("neko is", v);
   });
 });
@@ -33,7 +34,7 @@ open database
 
 get value from key.
 
-callback is `function(value){}`
+callback is `function(err, value){}`
 
 ## db.put(key, value, callback)
 

@@ -1,6 +1,6 @@
 {
   "name": "sqlite-kvs",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Key-Value store using SQLite3",
   "main": "./lib/sqlite-kvs",
   "dependencies": {
