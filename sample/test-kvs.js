@@ -8,7 +8,7 @@ var db = kvs.open(':memory:');
 
 // put and get
 db.put("neko", "nya-", function(err) {
-  db.get("neko", function (v) {
+  db.get("neko", function (err, v) {
     console.log("neko is", v);
   });
 });
@@ -16,10 +16,10 @@ db.put("neko", "nya-", function(err) {
 
 // put and get (update)
 db.put("hoge", "fuga", function (err) {
-  db.get("hoge", function(v) {
+  db.get("hoge", function(err, v) {
     console.log("hoge is", v);
     db.put("hoge", "abcd", function(err) {
-      db.get("hoge", function(v) {
+      db.get("hoge", function(err, v) {
         console.log("updated, hoge is", v);
       });
     });
