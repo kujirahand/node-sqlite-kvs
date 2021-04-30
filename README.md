@@ -3,62 +3,55 @@ Key-Value Store for Node.js using SQLite3
 
 # install
 
-```
+```shell
 $ npm install sqlite-kvs
 ```
 
 # example
 
-```
-kvs = require('sqlite-kvs');
+```js
+const KVS = require('sqlite-kvs');
 
 // open
-var db = kvs.open(':memory:');
+const db = new KVS();
+try{
+  await db.open(':memory:');
 
-// put and get
-db.put("neko", "nya-", function(err) {
-  db.get("neko", function (err, v) {
-    if (err) return console.log(err);
-    console.log("neko is", v);
-  });
-});
+  // put and get
+  await db.put("neko", "nya-");
+  const result = await db.get("neko");
+  console.log("neko is", result);
+
+}catch(err) {
+  console.log(err);
+}
 ```
 
 # api
 
-## db.open(path, callback)
+## await db.open(path)
 
 open database
 
-## db.get(key, callback)
+## await  db.get(key)
 
 get value from key.
 
-callback is `function(err, value){}`
-
-## db.put(key, value, callback)
+## await db.put(key, value)
 
 put value to key.
 
-callback is `function(err){}`
-
-## db.delete(key, callback)
+## await db.delete(key)
 
 delete key.
-
-callback is `function(err){}`
 
 ## db.all(callback)
 
 get all values.
 
-callback is `function(obj){}`. 
-
-## db.find(prefix, callback)
+## await db.find(prefix)
 
 find values.
-
-callback is `function(obj){}`
 
 
 
