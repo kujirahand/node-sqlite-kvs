@@ -45,7 +45,7 @@ put value to key.
 
 delete key.
 
-## db.all(callback)
+## await db.all()
 
 get all values.
 
