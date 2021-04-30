@@ -12,11 +12,16 @@ $ npm install sqlite-kvs
 ```js
 const KVS = require('sqlite-kvs');
 
-// open
+//
+// create
 const db = new KVS();
+
 try{
+  //
+  // open
   await db.open(':memory:');
 
+  //
   // put and get
   await db.put("neko", "nya-");
   const result = await db.get("neko");
