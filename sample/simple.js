@@ -1,13 +1,14 @@
-// kvs = require('sqlite-kvs');
-var kvs = require('../lib/sqlite-kvs.js');
+const KVS = require('../lib/sqlite-kvs.js').KVS;
 
-// open
-var db = kvs.open(':memory:');
+(async function () {
+  // open
+  const db = new KVS();
+  await db.open(':memory:');
 
-// put and get
-db.put("neko", "nya-", function(err) {
-  db.get("neko", function (err, v) {
-    console.log("neko is", v);
-  });
-});
+  // put and get
+  await db.put("neko", "nya-");
+  const result = await db.get("neko");
+  console.log("neko is", result);
+})();
+
 
