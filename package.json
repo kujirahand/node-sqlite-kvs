@@ -7,7 +7,7 @@
     "sqlite3": "^5.0.2"
   },
   "scripts": {
-    "test": "mocha"
+    "test": "mocha --require esm"
   },
   "repository": {
     "type": "git",
