@@ -1,26 +1,30 @@
 {
   "name": "sqlite-kvs",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Key-Value store using SQLite3",
   "main": "./lib/sqlite-kvs",
   "dependencies": {
-    "sqlite3": "^3.0.9"
+    "sqlite3": "^5.0.2"
   },
   "scripts": {
-    "test": "mocha"
+    "test": "mocha --require esm"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/kujirahand/node-sqlite-kvs.git"
   },
   "keywords": [
-    "KVS", "Key-Value Store", "SQLite"
+    "KVS",
+    "Key-Value Store",
+    "SQLite"
   ],
   "author": "kujirahand",
   "bugs": {
     "url": "https://github.com/kujirahand/node-sqlite-kvs/issues"
   },
   "homepage": "https://github.com/kujirahand/node-sqlite-kvs",
-  "private": false
+  "private": false,
+  "devDependencies": {
+    "esm": "^3.2.25"
+  }
 }
-
