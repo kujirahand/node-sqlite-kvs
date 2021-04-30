@@ -2,22 +2,28 @@
 const KVS = require('../lib/sqlite-kvs.js').KVS;
 
 async function run() {
+  let result;
   // open
   const db = new KVS();
   await db.open(':memory:');
 
   // put and get
   await db.put("neko", "nya-");
-  const result = await db.get("neko");
+  result = await db.get("neko");
   console.log("neko is", result);
 
 
   // put and get (update)
   await db.put("hoge", "fuga");
-  console.log("hoge is",(await db.get("hoge")));
+  console.log("hoge is");
+
+  result = await db.get("hoge");
+  console.log("hoge is",result);
 
   await db.put("hoge", "abcd");
-  console.log("updated hoge is",(await db.get("hoge")));
+
+  result = await db.get("hoge");  
+  console.log("updated hoge is",result);
 
   // put object
   await db.put("array", [1,2,3,4,5]);
@@ -27,19 +33,17 @@ async function run() {
   // put many
   // put many
   await db.put("a1", "a")
-          .put("a2", "aa")
-          .put("a3", "aaa")
-          .put("a4", "aaaa")
-          .put("b1", "b")
-          .put("b2", "bb")
-          .put("b3", "bbb");
+  await db.put("a2", "aa")
+  await db.put("a3", "aaa")
+  await db.put("a4", "aaaa")
+  await db.put("b1", "b")
+  await db.put("b2", "bb")
+  await db.put("b3", "bbb");
 
   // show
-  setTimeout(async () => {
-    await db.all()
-    console.log("all:", (await db.all()));
-    console.log("b:", (await db.find("b")));
-  },0);
+  console.log("all:", (await db.all()));
+  console.log("b:", (await db.find("b")));
+
 }
 
 try{

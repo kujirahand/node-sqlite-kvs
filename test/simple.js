@@ -7,7 +7,7 @@ describe('sqlite-kvs', function () {
 
   describe('simple1', function () {
     it('put and get', async function () {
-      const put = await db.put('neko', 'nya-');
+      await db.put('neko', 'nya-');
       const get = await db.get('neko');
       assert.strictEqual(get, 'nya-');
     });
@@ -19,15 +19,14 @@ describe('sqlite-kvs', function () {
       const res = await db.get('hoge');
       assert.strictEqual(res, 'nya-');
 
-      const up = await db.put('hoge', 'fuga');
-      const up2 = await db.get('hoge');
+      await db.put('hoge', 'fuga')
+      const up = await db.get('hoge');
       assert.strictEqual(up, 'fuga');
-      assert.strictEqual(up2, 'fuga');
-
-      const del = await db.put('hoge');
-      const del2 = await db.get('hoge');
+      
+      await db.put('hoge')
+      const del = await db.get('hoge');
       assert.strictEqual(del, undefined);
-      assert.strictEqual(del2, undefined);
+      
     });
   });
 
